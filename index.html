@@ -1,0 +1,2392 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ИИ как инструмент роста бизнеса</title>
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --indigo: #4F46E5;
+            --indigo-light: #6366F1;
+            --indigo-dark: #3730A3;
+            --indigo-darker: #312E81;
+            --dark-bg-1: #0a0a1a;
+            --dark-bg-2: #141432;
+            --dark-bg-3: #1e1b4b;
+            --white: #FFFFFF;
+            --black: #111111;
+            --gray: #64748B;
+            --gray-light: #F8FAFC;
+            --gray-200: #E2E8F0;
+            --green: #10B981;
+            --green-bg: #ECFDF5;
+            --red: #EF4444;
+            --red-bg: #FEF2F2;
+            --amber: #F59E0B;
+            --amber-bg: #FFFBEB;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 6px 16px rgba(0,0,0,0.04);
+            --card-shadow-hover: 0 4px 12px rgba(79,70,229,0.12), 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .reveal {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .reveal .slides section {
+            text-align: left;
+            padding: 32px 60px 56px 60px;
+            height: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            font-weight: 800;
+            color: var(--black);
+            letter-spacing: -0.03em;
+        }
+
+        .reveal h1 {
+            font-size: 1.8em;
+            line-height: 1.05;
+            text-transform: uppercase;
+        }
+
+        .reveal h2 {
+            font-size: 1.25em;
+            line-height: 1.1;
+            margin-bottom: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .reveal h3 {
+            font-size: 0.9em;
+            color: var(--gray);
+            font-weight: 500;
+            text-transform: none;
+        }
+
+        .reveal p {
+            font-size: 0.78em;
+            color: var(--gray);
+            line-height: 1.45;
+            font-weight: 400;
+        }
+
+        .reveal .highlight {
+            color: var(--indigo);
+        }
+
+        .reveal ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .reveal ul li {
+            font-size: 0.78em;
+            color: var(--black);
+            padding: 0.2em 0;
+            line-height: 1.35;
+        }
+
+        .reveal ul li::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--indigo);
+            border-radius: 50%;
+            margin-right: 0.7em;
+            vertical-align: middle;
+        }
+
+        /* ===== SLIDE TYPES ===== */
+
+        .slide-dark {
+            background: linear-gradient(160deg, var(--dark-bg-1) 0%, var(--dark-bg-2) 60%, var(--dark-bg-3) 100%) !important;
+            color: var(--white) !important;
+        }
+        .slide-dark h1, .slide-dark h2, .slide-dark h3,
+        .slide-dark p, .slide-dark span, .slide-dark li {
+            color: var(--white) !important;
+        }
+        .slide-dark .highlight {
+            color: #A5B4FC !important;
+        }
+        .slide-dark .slide-footer {
+            color: rgba(255,255,255,0.4) !important;
+        }
+        .slide-dark ul li::before {
+            background: #A5B4FC;
+        }
+
+        .slide-light {
+            background: linear-gradient(160deg, #F8F9FF 0%, #EEF0FB 40%, #F0EDFA 70%, #E8E4F8 100%) !important;
+            position: relative;
+        }
+        .slide-light::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 600px 400px at 90% 10%, rgba(99,102,241,0.04) 0%, transparent 70%),
+                radial-gradient(ellipse 500px 350px at 10% 90%, rgba(139,92,246,0.04) 0%, transparent 70%),
+                radial-gradient(ellipse 300px 300px at 50% 50%, rgba(79,70,229,0.02) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .slide-light > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Section divider */
+        .section-divider {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 48px 60px !important;
+        }
+        .section-divider .section-number {
+            font-size: 3.5em;
+            font-weight: 900;
+            color: rgba(255,255,255,0.12);
+            line-height: 1;
+            margin-bottom: 0.1em;
+        }
+        .section-divider h2 {
+            font-size: 1.8em;
+            font-weight: 800;
+            margin: 0;
+        }
+        .section-divider p {
+            font-size: 0.85em;
+            opacity: 0.6;
+            margin-top: 0.5em;
+        }
+
+        /* ===== COMPONENTS ===== */
+
+        /* Footer */
+        .slide-footer {
+            position: absolute;
+            bottom: 16px;
+            left: 60px;
+            right: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.42em;
+            color: var(--gray);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 500;
+            opacity: 0.7;
+            z-index: 10;
+        }
+
+        /* Metric cards */
+        .metric-card {
+            background: var(--white);
+            border: 1px solid rgba(226,232,240,0.6);
+            border-radius: 16px;
+            padding: 1em;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+        }
+        .metric-card .metric-value {
+            font-size: 1.4em;
+            font-weight: 800;
+            color: var(--indigo);
+            line-height: 1.2;
+        }
+        .metric-card .metric-label {
+            font-size: 0.62em;
+            color: var(--gray);
+            margin-top: 0.2em;
+        }
+        .metric-card .metric-delta {
+            display: inline-block;
+            margin-top: 0.3em;
+            padding: 0.15em 0.6em;
+            border-radius: 20px;
+            font-size: 0.65em;
+            font-weight: 600;
+            background: var(--green-bg);
+            color: #059669;
+        }
+
+        /* Cards grid */
+        .cards-grid {
+            display: grid;
+            gap: 0.8em;
+            margin-top: 0.8em;
+        }
+        .cards-grid-2 { grid-template-columns: 1fr 1fr; }
+        .cards-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+        .card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1em;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(226,232,240,0.5);
+        }
+        .card-accent {
+            background: var(--white);
+            border: 1px solid rgba(226,232,240,0.6);
+        }
+        .card-title {
+            font-size: 0.72em;
+            font-weight: 700;
+            color: var(--indigo);
+            margin-bottom: 0.2em;
+        }
+        .card-text {
+            font-size: 0.65em;
+            color: var(--gray);
+            line-height: 1.35;
+        }
+
+        /* Funnel */
+        .funnel-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+            margin-top: 0.8em;
+        }
+        .funnel-step {
+            display: flex;
+            align-items: center;
+            gap: 0.7em;
+        }
+        .funnel-box {
+            background: linear-gradient(145deg, var(--indigo), var(--indigo-dark));
+            color: var(--white);
+            padding: 0.5em 1em;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.8em;
+            min-width: 110px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(79,70,229,0.2);
+        }
+        .funnel-box.light {
+            background: linear-gradient(145deg, #EEF2FF, #E0E7FF);
+            color: var(--indigo);
+            box-shadow: var(--card-shadow);
+        }
+        .funnel-conv {
+            background: var(--amber-bg);
+            color: #92400E;
+            padding: 0.3em 0.6em;
+            border-radius: 6px;
+            font-size: 0.7em;
+            font-weight: 600;
+        }
+        .funnel-value {
+            font-size: 0.8em;
+            font-weight: 600;
+            color: var(--indigo-dark);
+        }
+        .funnel-arrow {
+            color: var(--gray);
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+
+        /* Tree nodes */
+        .tree-level {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8em;
+            margin: 0.5em 0;
+        }
+        .tree-node {
+            background: var(--white);
+            border: 2px solid var(--indigo);
+            border-radius: 14px;
+            padding: 0.6em 1em;
+            text-align: center;
+            min-width: 100px;
+            box-shadow: var(--card-shadow);
+        }
+        .tree-node.primary {
+            background: linear-gradient(145deg, var(--indigo), var(--indigo-dark));
+            color: var(--white);
+            border-color: var(--indigo);
+            box-shadow: 0 4px 16px rgba(79,70,229,0.3);
+        }
+        .tree-node .node-label {
+            font-size: 0.65em;
+            opacity: 0.7;
+        }
+        .tree-node.primary .node-label {
+            color: rgba(255,255,255,0.8);
+        }
+        .tree-node .node-value {
+            font-size: 0.9em;
+            font-weight: 700;
+        }
+        .tree-op {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--gray);
+            width: 28px;
+            height: 28px;
+            background: var(--gray-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .tree-line {
+            width: 2px;
+            height: 12px;
+            background: var(--gray-200);
+            margin: 0 auto;
+        }
+
+        /* Lever cards */
+        .lever-card {
+            border-radius: 16px;
+            padding: 1em;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+        }
+        .lever-card.blue { background: #EFF6FF; border: 2px solid #3B82F6; }
+        .lever-card.green { background: var(--green-bg); border: 2px solid var(--green); }
+        .lever-card.amber { background: var(--amber-bg); border: 2px solid var(--amber); }
+        .lever-name {
+            font-weight: 700;
+            font-size: 0.8em;
+            margin-bottom: 0.3em;
+        }
+        .lever-card.blue .lever-name { color: #1D4ED8; }
+        .lever-card.green .lever-name { color: #059669; }
+        .lever-card.amber .lever-name { color: #B45309; }
+        .lever-metric {
+            font-size: 0.7em;
+            color: var(--gray);
+            margin-bottom: 0.3em;
+        }
+        .lever-values {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.4em;
+            font-size: 0.8em;
+            margin-bottom: 0.3em;
+        }
+        .lever-current { color: var(--gray); }
+        .lever-target { font-weight: 700; color: #059669; }
+        .lever-action {
+            font-size: 0.65em;
+            color: var(--gray);
+            background: rgba(255,255,255,0.7);
+            padding: 0.3em 0.6em;
+            border-radius: 6px;
+        }
+
+        /* Step diagram */
+        .step-diagram {
+            display: flex;
+            align-items: center;
+            gap: 0.4em;
+            margin: 1em 0;
+            flex-wrap: wrap;
+        }
+        .step-item {
+            background: var(--white);
+            border: 2px solid var(--indigo);
+            border-radius: 14px;
+            padding: 0.7em 0.8em;
+            text-align: center;
+            flex: 1;
+            min-width: 110px;
+            box-shadow: var(--card-shadow);
+        }
+        .step-item .step-num {
+            font-size: 0.65em;
+            font-weight: 700;
+            color: var(--indigo);
+            margin-bottom: 0.2em;
+        }
+        .step-item .step-text {
+            font-size: 0.7em;
+            color: var(--black);
+            font-weight: 500;
+        }
+        .step-arrow {
+            font-size: 1.1em;
+            color: var(--indigo);
+            font-weight: 700;
+        }
+
+        /* Comparison rows */
+        .comparison-row {
+            display: flex;
+            align-items: center;
+            gap: 0.8em;
+            margin: 0.5em 0;
+            padding: 0.7em 1.2em;
+            background: var(--white);
+            border-radius: 14px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(226,232,240,0.5);
+        }
+        .old-tool {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 0.8em;
+            min-width: 130px;
+        }
+        .new-tool {
+            font-weight: 700;
+            color: var(--indigo);
+            font-size: 0.85em;
+        }
+        .comparison-arrow {
+            color: var(--green);
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+
+        /* Action card */
+        .action-card {
+            background: linear-gradient(145deg, var(--indigo) 0%, var(--indigo-dark) 100%);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 1.2em;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(79,70,229,0.3);
+        }
+        .action-card .action-num {
+            font-size: 1.6em;
+            font-weight: 800;
+            opacity: 0.25;
+            line-height: 1;
+        }
+        .action-card .action-title {
+            font-size: 0.85em;
+            font-weight: 700;
+            margin: 0.3em 0;
+        }
+        .action-card .action-desc {
+            font-size: 0.7em;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            background: var(--indigo);
+            color: var(--white);
+            padding: 0.25em 1em;
+            border-radius: 24px;
+            font-size: 0.75em;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        /* Placeholder box */
+        .placeholder-box {
+            background: linear-gradient(145deg, var(--white), var(--gray-light));
+            border: 2px dashed rgba(79,70,229,0.25);
+            border-radius: 16px;
+            padding: 1.5em;
+            text-align: center;
+            color: var(--gray);
+            margin: 0.5em 0;
+            box-shadow: var(--card-shadow);
+        }
+
+        /* Two columns */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5em;
+            align-items: start;
+        }
+
+        /* Terminal */
+        .terminal-block {
+            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            color: #e2e8f0;
+            font-family: 'SF Mono', 'Fira Code', 'Monaco', monospace;
+            padding: 0.9em 1.1em;
+            border-radius: 14px;
+            font-size: 0.65em;
+            line-height: 1.6;
+            margin: 0.5em 0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .terminal-block .prompt {
+            color: #34d399;
+        }
+        .terminal-block .comment {
+            color: #6C7086;
+        }
+
+        /* Quote */
+        .quote-block {
+            font-size: 1.0em;
+            font-weight: 600;
+            color: var(--black);
+            line-height: 1.3;
+            border-left: 4px solid var(--indigo);
+            padding-left: 0.8em;
+            margin: 0.8em 0;
+            background: linear-gradient(90deg, rgba(79,70,229,0.04), transparent);
+            padding: 0.5em 0.5em 0.5em 0.8em;
+            border-radius: 0 8px 8px 0;
+        }
+        .slide-dark .quote-block {
+            border-left-color: #A5B4FC;
+        }
+
+        /* Roadmap */
+        .roadmap {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.8em;
+            margin-top: 0.8em;
+        }
+        .roadmap-item {
+            background: var(--white);
+            border: 1px solid rgba(226,232,240,0.6);
+            border-radius: 16px;
+            padding: 0.8em;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: box-shadow 0.2s;
+        }
+        .roadmap-item .rm-num {
+            font-size: 0.65em;
+            font-weight: 700;
+            color: var(--indigo);
+            margin-bottom: 0.2em;
+        }
+        .roadmap-item .rm-title {
+            font-size: 0.75em;
+            font-weight: 600;
+            color: var(--black);
+        }
+        .roadmap-item .rm-desc {
+            font-size: 0.65em;
+            color: var(--gray);
+            margin-top: 0.15em;
+        }
+
+        /* Formula */
+        .formula-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6em;
+            margin: 1em 0;
+            flex-wrap: wrap;
+        }
+        .formula-block {
+            background: linear-gradient(145deg, var(--indigo), var(--indigo-dark));
+            color: var(--white);
+            padding: 0.7em 1.2em;
+            border-radius: 14px;
+            text-align: center;
+            min-width: 100px;
+            box-shadow: 0 4px 12px rgba(79,70,229,0.25);
+        }
+        .formula-block .f-label {
+            font-size: 0.65em;
+            opacity: 0.8;
+        }
+        .formula-block .f-value {
+            font-size: 1em;
+            font-weight: 700;
+        }
+        .formula-block.result {
+            background: var(--black);
+        }
+        .formula-op {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--gray);
+        }
+
+        /* AI mapping table */
+        .ai-map {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 0.35em;
+            margin-top: 0.6em;
+        }
+        .ai-map th {
+            font-size: 0.65em;
+            font-weight: 600;
+            color: var(--gray);
+            text-align: left;
+            padding: 0.4em 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .ai-map td {
+            font-size: 0.75em;
+            padding: 0.55em 0.8em;
+            background: var(--white);
+            color: var(--black);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+        }
+        .ai-map td:first-child {
+            border-radius: 8px 0 0 8px;
+            font-weight: 600;
+        }
+        .ai-map td:last-child {
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Contact items */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8em;
+            padding: 0.5em 0;
+            font-size: 0.9em;
+        }
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.12);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 0.8em;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Progress bar */
+        .reveal .progress { background: rgba(79,70,229,0.1); height: 3px; }
+        .reveal .progress span { background: linear-gradient(90deg, var(--indigo), var(--indigo-light)); }
+        .reveal .slide-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: var(--gray);
+            background: transparent;
+        }
+
+        /* Photo placeholder */
+        .photo-placeholder {
+            width: 160px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--gray-light), var(--gray-200));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-size: 0.75em;
+            border: 2px solid var(--gray-200);
+            flex-shrink: 0;
+        }
+
+        /* Centered slide helper */
+        .reveal .slides section.center-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Strikethrough */
+        .struck {
+            text-decoration: line-through;
+            color: var(--gray);
+            opacity: 0.6;
+        }
+
+        /* Ecosystem diagram */
+        .ecosystem {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8em;
+            margin: 1.2em 0;
+        }
+        .eco-box {
+            background: var(--white);
+            border: 2px solid var(--indigo);
+            border-radius: 16px;
+            padding: 0.8em 1.5em;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+        }
+        .eco-box .eco-name {
+            font-weight: 700;
+            font-size: 0.85em;
+            color: var(--indigo);
+        }
+        .eco-box .eco-desc {
+            font-size: 0.65em;
+            color: var(--gray);
+            margin-top: 0.2em;
+        }
+        .eco-arrow {
+            font-size: 1.3em;
+            color: var(--indigo);
+        }
+
+        /* Note / warning */
+        .note-warning {
+            background: var(--amber-bg);
+            border: 1px solid #FCD34D;
+            border-radius: 10px;
+            padding: 0.5em 0.8em;
+            font-size: 0.65em;
+            color: #92400E;
+            margin-top: 0.6em;
+            font-style: italic;
+        }
+
+        /* ===== APPLE-STYLE ENHANCEMENTS ===== */
+
+        /* Glassmorphism cards */
+        .card-glass {
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Whitespace */
+        .reveal .slides section {
+            padding: 28px 60px 48px 60px;
+        }
+
+        /* Subtle gradient text for headings */
+        .reveal h2 {
+            background: linear-gradient(135deg, var(--black) 0%, var(--indigo-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .slide-dark h2 {
+            background: linear-gradient(135deg, var(--white) 0%, #C7D2FE 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Background image slide */
+        .slide-bg-image {
+            position: relative;
+        }
+        .slide-bg-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.08;
+            z-index: 0;
+            border-radius: 0;
+        }
+        .slide-bg-image > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== MOCKUP COMPONENTS ===== */
+
+        /* Window chrome */
+        .mockup-window {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15), 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        .mockup-titlebar {
+            background: linear-gradient(180deg, #3c3c3c, #2d2d2d);
+            padding: 6px 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .mockup-titlebar .dot {
+            width: 10px; height: 10px; border-radius: 50%;
+        }
+        .mockup-titlebar .dot.red { background: #FF5F57; }
+        .mockup-titlebar .dot.yellow { background: #FEBC2E; }
+        .mockup-titlebar .dot.green { background: #28C840; }
+        .mockup-titlebar .title {
+            flex: 1; text-align: center; font-size: 0.55em;
+            color: rgba(255,255,255,0.6); font-weight: 500;
+        }
+
+        /* Chat mockup */
+        .mockup-chat {
+            background: #2b2b3d;
+            padding: 0.6em;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+        .chat-msg {
+            max-width: 85%;
+            padding: 0.5em 0.7em;
+            border-radius: 12px;
+            font-size: 0.6em;
+            line-height: 1.4;
+        }
+        .chat-msg.user {
+            background: var(--indigo);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+        .chat-msg.ai {
+            background: #3b3b50;
+            color: #e2e8f0;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+        .chat-msg.ai .ai-label {
+            color: #a78bfa;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-bottom: 0.2em;
+        }
+
+        /* Chat sidebar */
+        .mockup-sidebar {
+            background: #1e1e2e;
+            padding: 0.5em;
+            min-width: 120px;
+            border-right: 1px solid rgba(255,255,255,0.08);
+        }
+        .sidebar-item {
+            padding: 0.3em 0.5em;
+            border-radius: 6px;
+            font-size: 0.5em;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.2em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .sidebar-item.active {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        /* Excel mockup */
+        .mockup-excel-grid {
+            display: grid;
+            grid-template-columns: 30px repeat(4, 1fr);
+            background: white;
+            border: 1px solid #d1d5db;
+            font-size: 0.55em;
+        }
+        .mockup-excel-grid .cell {
+            padding: 3px 6px;
+            border: 1px solid #e5e7eb;
+            font-size: 1em;
+            color: #374151;
+            min-height: 22px;
+        }
+        .mockup-excel-grid .cell.header {
+            background: #f3f4f6;
+            font-weight: 600;
+            text-align: center;
+            color: #6b7280;
+        }
+        .mockup-excel-grid .cell.row-num {
+            background: #f3f4f6;
+            text-align: center;
+            color: #6b7280;
+        }
+        .mockup-excel-grid .cell.highlight-cell {
+            background: #EEF2FF;
+            color: var(--indigo);
+            font-weight: 600;
+        }
+
+        /* Excel Claude panel */
+        .mockup-claude-panel {
+            background: linear-gradient(180deg, #f8f7ff, #f0edfa);
+            border-left: 2px solid var(--indigo);
+            padding: 0.5em;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4em;
+            min-width: 180px;
+        }
+        .claude-panel-header {
+            display: flex;
+            align-items: center;
+            gap: 0.3em;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid rgba(79,70,229,0.15);
+        }
+        .claude-panel-header .claude-logo {
+            width: 18px; height: 18px;
+            background: var(--indigo);
+            border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 700; font-size: 0.6em;
+        }
+        .claude-panel-header span {
+            font-weight: 600; font-size: 0.65em; color: var(--indigo);
+        }
+        .claude-panel-msg {
+            font-size: 0.5em;
+            color: #374151;
+            line-height: 1.4;
+            padding: 0.3em;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid rgba(79,70,229,0.1);
+        }
+        .claude-panel-input {
+            margin-top: auto;
+            padding: 0.3em 0.5em;
+            border-radius: 8px;
+            border: 1px solid rgba(79,70,229,0.2);
+            background: white;
+            font-size: 0.5em;
+            color: #9ca3af;
+        }
+
+        /* Kanban mockup */
+        .mockup-kanban {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.5em;
+            padding: 0.6em;
+            background: #f1f5f9;
+            border-radius: 0 0 12px 12px;
+        }
+        .kanban-col {
+            background: #e2e8f0;
+            border-radius: 8px;
+            padding: 0.4em;
+        }
+        .kanban-col-title {
+            font-size: 0.55em;
+            font-weight: 700;
+            color: #475569;
+            padding: 0.2em 0.3em;
+            margin-bottom: 0.3em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .kanban-card {
+            background: white;
+            border-radius: 6px;
+            padding: 0.35em 0.5em;
+            margin-bottom: 0.3em;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            font-size: 0.5em;
+            color: #334155;
+            border-left: 3px solid transparent;
+        }
+        .kanban-card.blue { border-left-color: #3b82f6; }
+        .kanban-card.green { border-left-color: #10b981; }
+        .kanban-card.amber { border-left-color: #f59e0b; }
+        .kanban-card.purple { border-left-color: #8b5cf6; }
+        .kanban-card .card-tag {
+            font-size: 0.8em;
+            padding: 0.1em 0.4em;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 0.2em;
+        }
+        .kanban-card .card-tag.tag-marketing { background: #dbeafe; color: #1d4ed8; }
+        .kanban-card .card-tag.tag-sales { background: #dcfce7; color: #15803d; }
+        .kanban-card .card-tag.tag-ops { background: #fef3c7; color: #92400e; }
+
+        /* Chart mockup */
+        .mockup-dashboard {
+            padding: 0.6em;
+            background: white;
+            border-radius: 0 0 12px 12px;
+        }
+        .dash-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.4em;
+            margin-bottom: 0.6em;
+        }
+        .dash-metric {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 0.4em;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        .dash-metric .dm-value {
+            font-size: 0.85em;
+            font-weight: 700;
+            color: var(--indigo);
+        }
+        .dash-metric .dm-label {
+            font-size: 0.45em;
+            color: #64748b;
+            margin-top: 0.1em;
+        }
+        .dash-metric .dm-delta {
+            font-size: 0.4em;
+            color: #059669;
+            font-weight: 600;
+        }
+        .dash-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 0.3em;
+            height: 100px;
+            padding: 0.4em;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        .dash-bar {
+            flex: 1;
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .dash-bar .bar-fill {
+            width: 100%;
+            border-radius: 4px 4px 0 0;
+            background: linear-gradient(180deg, var(--indigo-light), var(--indigo));
+            transition: height 0.3s;
+        }
+        .dash-bar .bar-fill.secondary {
+            background: linear-gradient(180deg, #a5b4fc, #818cf8);
+            opacity: 0.5;
+        }
+        .dash-bar .bar-label {
+            font-size: 0.45em;
+            color: #64748b;
+            margin-top: 0.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+<!-- ============================================================ -->
+<!-- ВВЕДЕНИЕ -->
+<!-- ============================================================ -->
+
+<!-- Слайд 1: Титульный -->
+<section class="slide-dark center-content">
+    <div style="margin-bottom: 0.8em;">
+        <span class="badge" style="background: rgba(255,255,255,0.15); font-size: 0.9em;">ТРЕНИНГ</span>
+    </div>
+    <h1 style="text-align: center; font-size: 2.2em; font-weight: 900;">ИИ КАК ИНСТРУМЕНТ<br><span class="highlight">РОСТА БИЗНЕСА</span></h1>
+    <p style="text-align: center; font-size: 0.95em; margin-top: 0.8em; opacity: 0.6;">Практический тренинг по применению искусственного интеллекта</p>
+    <p style="text-align: center; font-size: 0.8em; margin-top: 1em; opacity: 0.4;">~1.5 часа: 40 мин презентация + 40 мин Q&A</p>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 2: Формат лекции (дисклеймер) -->
+<section class="slide-light">
+    <h2>ФОРМАТ ЛЕКЦИИ</h2>
+    <div class="quote-block" style="font-size: 1.05em; margin: 0.8em 0;">
+        Это ознакомительная лекция о возможностях современных нейросетей, <strong>НЕ</strong> воркшоп
+    </div>
+    <ul style="margin-top: 1em;">
+        <li>Цель — показать что умеют нейросети сегодня и как это применять в бизнесе</li>
+        <li>Вопросы «почему у меня не работает» и «как настроить» — не формат этой лекции</li>
+        <li>Формат: 40 мин презентация + 40 мин Q&A</li>
+    </ul>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 3: Спикер -->
+<section class="slide-light">
+    <h2 style="margin-bottom: 0.1em;">СПИКЕР</h2>
+    <div style="display: flex; gap: 1.2em; align-items: flex-start; margin-top: 0.3em;">
+        <img src="Images/Daniar.jpg" style="width:120px; height:150px; border-radius:12px; object-fit:cover; flex-shrink:0;">
+        <div>
+            <h2 style="font-size: 1.05em; margin-bottom: 0.05em;">Данияр Салахутдинов</h2>
+            <p style="font-size: 0.75em; color: var(--indigo); font-weight: 600; margin-bottom: 0.3em;">Основатель Winch Group</p>
+            <ul style="margin-top: 0;">
+                <li style="font-size: 0.72em;">Winch Group — премиальная полиграфия и упаковка, Ташкент</li>
+                <li style="font-size: 0.72em;">14+ лет на рынке, 100+ корпоративных клиентов</li>
+                <li style="font-size: 0.72em;">Внедряет ИИ в маркетинг, продажи и аналитику</li>
+                <li style="font-size: 0.72em;">Формула прибыли на реальных данных своей компании</li>
+            </ul>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 3: Что такое ИИ — упрощён: одна цитата + 3 буллета -->
+<section class="slide-light">
+    <h2>ЧТО ТАКОЕ ИИ</h2>
+    <p style="font-size: 0.85em; margin-bottom: 0.8em;">Простое объяснение без технического жаргона</p>
+    <div class="quote-block" style="font-size: 1.1em; margin-bottom: 1em;">
+        ИИ — это очень быстрый ассистент, который читал весь интернет
+    </div>
+    <ul>
+        <li>Прочитал все книги в мире и работает 24/7</li>
+        <li>Отвечает за секунды на любые вопросы</li>
+        <li>Стоит как чашка кофе в день</li>
+    </ul>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 4: Почему ИИ сейчас -->
+<section class="slide-dark center-content">
+    <div class="quote-block" style="font-size: 1.3em; text-align: center; border: none; padding: 0; color: var(--white);">
+        "ИИ — это не будущее.<br>
+        <span class="highlight">Это инструмент прямо сейчас.</span>"
+    </div>
+    <p style="margin-top: 1.5em; text-align: center; font-size: 0.9em; opacity: 0.6;">
+        72% компаний из Fortune 500 уже используют ИИ
+    </p>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 5: Что может и не может ИИ — по 4 пункта -->
+<section class="slide-light">
+    <h2>ЧТО МОЖЕТ И НЕ МОЖЕТ ИИ</h2>
+    <div class="two-columns" style="margin-top: 0.6em;">
+        <div class="card" style="background: var(--green-bg); border: 2px solid var(--green); border-radius: 16px; padding: 0.6em 0.8em;">
+            <div class="card-title" style="color: #059669; font-size: 0.8em;">Может</div>
+            <ul>
+                <li style="font-size: 0.72em; padding: 0.15em 0;">Генерировать тексты и контент</li>
+                <li style="font-size: 0.72em; padding: 0.15em 0;">Анализировать данные и отчёты</li>
+                <li style="font-size: 0.72em; padding: 0.15em 0;">Создавать изображения и видео</li>
+                <li style="font-size: 0.72em; padding: 0.15em 0;">Автоматизировать рутинные задачи</li>
+            </ul>
+        </div>
+        <div class="card" style="background: var(--red-bg); border: 2px solid var(--red); border-radius: 16px; padding: 0.6em 0.8em;">
+            <div class="card-title" style="color: var(--red); font-size: 0.8em;">Не может (пока)</div>
+            <ul>
+                <li style="font-size: 0.72em; padding: 0.15em 0;">Заменить стратегическое мышление</li>
+                <li style="font-size: 0.72em; padding: 0.15em 0;">Гарантировать 100% точность</li>
+                <li style="font-size: 0.72em; padding: 0.15em 0;">Строить отношения с клиентами</li>
+                <li style="font-size: 0.72em; padding: 0.15em 0;">Нести ответственность за результат</li>
+            </ul>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 6: План тренинга — 4 крупных + подзаголовок -->
+<section class="slide-light">
+    <h2>ПЛАН ТРЕНИНГА</h2>
+    <p style="margin-bottom: 0.6em; font-size: 0.85em;">3 инструмента + формула прибыли + промптинг</p>
+    <div class="roadmap">
+        <div class="roadmap-item">
+            <div class="rm-num">01</div>
+            <div class="rm-title">Claude</div>
+            <div class="rm-desc">Чат, Excel, Chrome, артефакты</div>
+        </div>
+        <div class="roadmap-item">
+            <div class="rm-num">02</div>
+            <div class="rm-title">Gemini</div>
+            <div class="rm-desc">Изображения</div>
+        </div>
+        <div class="roadmap-item">
+            <div class="rm-num">03</div>
+            <div class="rm-title">Perplexity</div>
+            <div class="rm-desc">AI-поиск</div>
+        </div>
+        <div class="roadmap-item">
+            <div class="rm-num">04</div>
+            <div class="rm-title">Практика</div>
+            <div class="rm-desc">Формула прибыли + промптинг</div>
+        </div>
+    </div>
+    <p style="margin-top: 1.5em; text-align: center; font-size: 1em; color: var(--gray);">
+        + Q&A
+    </p>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ПРОМПТИНГ — как разговаривать с ИИ -->
+<!-- ============================================================ -->
+
+<!-- Техники промптинга — 4 буллета крупно -->
+<section class="slide-light">
+    <h2>ТЕХНИКИ ПРОМПТИНГА</h2>
+    <p style="margin-bottom: 0.8em;">Как правильно разговаривать с ИИ</p>
+    <ul style="margin-bottom: 1em;">
+        <li style="padding: 0.2em 0;"><span style="color: var(--indigo); font-weight: 600;">Роль + Контекст</span> — задайте ИИ роль эксперта и опишите ситуацию</li>
+        <li style="padding: 0.2em 0;"><span style="color: var(--indigo); font-weight: 600;">Задача + Формат</span> — чётко сформулируйте задачу и желаемый вывод</li>
+        <li style="padding: 0.2em 0;"><span style="color: var(--indigo); font-weight: 600;">Ограничения</span> — укажите объём, тон, аудиторию, язык</li>
+        <li style="padding: 0.2em 0;"><span style="color: var(--indigo); font-weight: 600;">Итерации</span> — уточняйте, дополняйте, корректируйте</li>
+    </ul>
+    <p style="text-align: center; font-size: 0.85em;">
+        <strong>Формула:</strong> <span class="highlight">Роль + Контекст + Задача + Формат + Ограничения</span>
+    </p>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Хороший vs плохой промпт -->
+<section class="slide-light">
+    <h2>ХОРОШИЙ VS ПЛОХОЙ ПРОМПТ</h2>
+    <div class="two-columns" style="margin-top: 0.8em;">
+        <div>
+            <div class="card" style="background: var(--red-bg); border: 2px solid var(--red); border-radius: 16px; padding: 0.8em 1em;">
+                <div class="card-title" style="color: var(--red); font-size: 0.85em;">Плохой промпт</div>
+                <div class="terminal-block" style="padding: 0.6em 0.8em;">
+                    Напиши текст про наш продукт
+                </div>
+                <div class="card-text" style="margin-top: 0.5em;">Нет контекста, роли, формата. ИИ будет угадывать.</div>
+            </div>
+        </div>
+        <div>
+            <div class="card" style="background: var(--green-bg); border: 2px solid var(--green); border-radius: 16px; padding: 0.8em 1em;">
+                <div class="card-title" style="color: #059669; font-size: 0.85em;">Хороший промпт</div>
+                <div class="terminal-block" style="padding: 0.6em 0.8em;">
+                    <span class="prompt">Роль:</span> Маркетолог B2B<br>
+                    <span class="prompt">Контекст:</span> Премиум упаковка<br>
+                    <span class="prompt">Задача:</span> LinkedIn-пост<br>
+                    <span class="prompt">Формат:</span> 150-200 слов<br>
+                    <span class="prompt">Тон:</span> Профессиональный
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Мета-промптинг -->
+<section class="slide-light">
+    <h2>МЕТА-ПРОМПТИНГ</h2>
+    <p style="margin-bottom: 0.3em;">Используйте ИИ, чтобы улучшить ваши промпты</p>
+    <div class="two-columns" style="gap: 1.2em; margin-top: 0.3em;">
+        <div>
+            <div class="terminal-block" style="font-size: 0.58em; padding: 0.6em 0.8em; line-height: 1.5;">
+                <span class="prompt">Вы:</span> "Хочу попросить Claude написать<br>
+                стратегию продаж. Помоги составить промпт."<br><br>
+                <span class="prompt">Claude:</span> "Вот оптимизированный промпт<br>
+                с ролью, контекстом и структурой..."
+            </div>
+        </div>
+        <div>
+            <ul style="margin-bottom: 0.2em;">
+                <li style="font-size: 0.72em; padding: 0.12em 0;">ИИ знает свои сильные стороны</li>
+                <li style="font-size: 0.72em; padding: 0.12em 0;">Понимает, какой контекст нужен</li>
+                <li style="font-size: 0.72em; padding: 0.12em 0;">Результат будет значительно лучше</li>
+            </ul>
+            <p style="margin-top: 0.3em; padding: 0.35em 0.6em; background: #EEF2FF; border-radius: 10px; font-size: 0.62em; line-height: 1.4;">
+                <strong>Лайфхак:</strong> "Задай мне вопросы, чтобы лучше понять задачу"
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- СЕКЦИЯ 01: CLAUDE -->
+<!-- ============================================================ -->
+
+<!-- Разделитель секции 01 -->
+<section class="slide-dark section-divider">
+    <div class="section-number">01</div>
+    <h2>CLAUDE OPUS 4.5</h2>
+    <p>Самая мощная языковая модель для бизнес-задач</p>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 8: Что такое Claude — 4 буллета крупно -->
+<section class="slide-light">
+    <h2>ЧТО ТАКОЕ CLAUDE</h2>
+    <p style="margin-bottom: 1.2em;">Продукт компании Anthropic — лидера в безопасном ИИ</p>
+    <ul style="margin-top: 0.5em;">
+        <li>Анализ документов до <span style="color: var(--indigo); font-weight: 600;">700 страниц</span></li>
+        <li>Глубокое понимание контекста и генерация отчётов</li>
+        <li>Один из самых точных ИИ на рынке по независимым тестам</li>
+        <li>Минимум «галлюцинаций», фокус на безопасности</li>
+    </ul>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 9: Как работать с Claude — мокап интерфейса -->
+<section class="slide-light">
+    <h2>КАК РАБОТАТЬ С CLAUDE</h2>
+    <p style="margin-bottom: 0.5em;">Интерфейс claude.ai — просто как мессенджер</p>
+    <div class="mockup-window" style="max-height: 310px;">
+        <div class="mockup-titlebar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="title">claude.ai</span>
+            <span style="width: 38px;"></span>
+        </div>
+        <div style="display: flex; height: 255px;">
+            <div class="mockup-sidebar">
+                <div style="font-size: 0.5em; color: rgba(255,255,255,0.3); padding: 0.3em 0.5em; text-transform: uppercase; letter-spacing: 0.05em;">Сегодня</div>
+                <div class="sidebar-item active">Анализ воронки продаж</div>
+                <div class="sidebar-item">КП для клиента Acme</div>
+                <div class="sidebar-item">Маркетинг-план Q1</div>
+                <div style="font-size: 0.5em; color: rgba(255,255,255,0.3); padding: 0.3em 0.5em; margin-top: 0.3em; text-transform: uppercase; letter-spacing: 0.05em;">Вчера</div>
+                <div class="sidebar-item">Анализ конкурентов</div>
+                <div class="sidebar-item">Скрипт продаж B2B</div>
+            </div>
+            <div class="mockup-chat" style="flex: 1;">
+                <div class="chat-msg user">
+                    Проанализируй нашу воронку продаж: 65K охватов, 2150 лидов, 142 клиента. Найди слабые места.
+                </div>
+                <div class="chat-msg ai">
+                    <div class="ai-label">Claude</div>
+                    <strong>Анализ воронки:</strong><br>
+                    <span style="color: #f59e0b;">1. Охваты &rarr; Лиды: 3.3%</span> — ниже нормы (5-8%)<br>
+                    <span style="color: #10b981;">2. Лиды &rarr; Целевые: 57%</span> — хорошо<br>
+                    <span style="color: #f59e0b;">3. Целевые &rarr; Клиенты: 20%</span> — есть потенциал<br><br>
+                    <strong>Рекомендации:</strong> Усилить контент для охватов, внедрить SPIN-продажи для конверсии...
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 10: Пример — анализ бизнеса в Claude -->
+<section class="slide-light">
+    <h2>ПРИМЕР: АНАЛИЗ БИЗНЕСА</h2>
+    <p style="margin-bottom: 0.5em;">Загрузите данные — получите готовый отчёт</p>
+    <div class="mockup-window">
+        <div class="mockup-titlebar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="title">claude.ai</span>
+            <span style="width: 38px;"></span>
+        </div>
+        <div class="mockup-chat" style="min-height: 210px;">
+            <div class="chat-msg user">
+                Вот данные моей компании за год. Revenue = Clients × LTV. Клиенты: 142, LTV: $15,770. Найди главные рычаги роста.
+            </div>
+            <div class="chat-msg ai" style="max-width: 90%;">
+                <div class="ai-label">Claude</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.4em; margin: 0.3em 0;">
+                    <div style="background: #312e81; padding: 0.4em; border-radius: 6px; text-align: center;">
+                        <div style="font-size: 0.9em; font-weight: 700; color: #a5b4fc;">+340%</div>
+                        <div style="font-size: 0.7em; color: rgba(255,255,255,0.6);">Клиенты</div>
+                    </div>
+                    <div style="background: #312e81; padding: 0.4em; border-radius: 6px; text-align: center;">
+                        <div style="font-size: 0.9em; font-weight: 700; color: #a5b4fc;">+72%</div>
+                        <div style="font-size: 0.7em; color: rgba(255,255,255,0.6);">LTV</div>
+                    </div>
+                    <div style="background: #312e81; padding: 0.4em; border-radius: 6px; text-align: center;">
+                        <div style="font-size: 0.9em; font-weight: 700; color: #34d399;">+660%</div>
+                        <div style="font-size: 0.7em; color: rgba(255,255,255,0.6);">Выручка</div>
+                    </div>
+                </div>
+                <strong>Главные рычаги:</strong><br>
+                1. <span style="color: #a5b4fc;">База клиентов</span> — рост охватов и конверсии<br>
+                2. <span style="color: #a5b4fc;">Средний чек</span> — upsell и cross-sell<br>
+                3. <span style="color: #a5b4fc;">Частота</span> — абонентская модель
+            </div>
+        </div>
+    </div>
+    <p style="margin-top: 0.5em; font-size: 0.85em; color: var(--indigo); font-weight: 500; text-align: center;">Живая демонстрация во время тренинга</p>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 11: Бизнес-применения Claude — 4 крупных элемента -->
+<section class="slide-light">
+    <h2>БИЗНЕС-ПРИМЕНЕНИЯ CLAUDE</h2>
+    <div class="cards-grid cards-grid-2" style="margin-top: 0.6em; gap: 0.5em;">
+        <div class="card card-accent" style="padding: 0.7em;">
+            <div class="card-title" style="font-size: 0.8em;">📄 Документы и контракты</div>
+            <div class="card-text" style="font-size: 0.65em;">Анализ договоров, отчётов, регламентов. Проверка рисков, суммаризация на 1 страницу.</div>
+        </div>
+        <div class="card card-accent" style="padding: 0.7em;">
+            <div class="card-title" style="font-size: 0.8em;">📊 Отчёты и аналитика</div>
+            <div class="card-text" style="font-size: 0.65em;">Финансовый анализ, KPI-дашборды, еженедельные саммари из данных.</div>
+        </div>
+        <div class="card card-accent" style="padding: 0.7em;">
+            <div class="card-title" style="font-size: 0.8em;">✉️ Коммуникации</div>
+            <div class="card-text" style="font-size: 0.65em;">Письма клиентам, коммерческие предложения, скрипты продаж.</div>
+        </div>
+        <div class="card card-accent" style="padding: 0.7em;">
+            <div class="card-title" style="font-size: 0.8em;">💡 Стратегия</div>
+            <div class="card-text" style="font-size: 0.65em;">Бизнес-планы, анализ конкурентов, маркетинговые стратегии.</div>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Claude в Excel — визуальный мокап -->
+<section class="slide-light">
+    <h2>CLAUDE В EXCEL</h2>
+    <p style="margin-bottom: 0.5em;">Официальный Add-in от Microsoft + Anthropic</p>
+    <div class="mockup-window">
+        <div class="mockup-titlebar" style="background: linear-gradient(180deg, #217346, #185c37);">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="title" style="color: rgba(255,255,255,0.8);">Продажи_Q4.xlsx — Excel</span>
+            <span style="width: 38px;"></span>
+        </div>
+        <div style="display: flex; height: 220px;">
+            <!-- Excel grid -->
+            <div style="flex: 1; overflow: hidden;">
+                <div class="mockup-excel-grid">
+                    <div class="cell header"></div>
+                    <div class="cell header">A</div>
+                    <div class="cell header">B</div>
+                    <div class="cell header">C</div>
+                    <div class="cell header">D</div>
+
+                    <div class="cell row-num">1</div>
+                    <div class="cell" style="font-weight: 600;">Месяц</div>
+                    <div class="cell" style="font-weight: 600;">Выручка</div>
+                    <div class="cell" style="font-weight: 600;">Клиенты</div>
+                    <div class="cell" style="font-weight: 600;">Ср. чек</div>
+
+                    <div class="cell row-num">2</div>
+                    <div class="cell">Октябрь</div>
+                    <div class="cell">$142,500</div>
+                    <div class="cell">38</div>
+                    <div class="cell">$3,750</div>
+
+                    <div class="cell row-num">3</div>
+                    <div class="cell">Ноябрь</div>
+                    <div class="cell">$168,200</div>
+                    <div class="cell">41</div>
+                    <div class="cell">$4,102</div>
+
+                    <div class="cell row-num">4</div>
+                    <div class="cell">Декабрь</div>
+                    <div class="cell highlight-cell">$89,300</div>
+                    <div class="cell highlight-cell">22</div>
+                    <div class="cell">$4,059</div>
+
+                    <div class="cell row-num">5</div>
+                    <div class="cell" style="font-weight: 600;">Итого</div>
+                    <div class="cell" style="font-weight: 600;">$400,000</div>
+                    <div class="cell" style="font-weight: 600;">101</div>
+                    <div class="cell" style="font-weight: 600;">$3,960</div>
+
+                    <div class="cell row-num">6</div>
+                    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                </div>
+            </div>
+            <!-- Claude sidebar -->
+            <div class="mockup-claude-panel">
+                <div class="claude-panel-header">
+                    <div class="claude-logo">C</div>
+                    <span>Claude</span>
+                </div>
+                <div class="claude-panel-msg" style="background: #eef2ff;">
+                    <span style="font-size: 0.9em; color: var(--indigo); font-weight: 500;">Вы:</span><br>
+                    Проанализируй продажи за Q4 и найди аномалии
+                </div>
+                <div class="claude-panel-msg">
+                    <span style="font-size: 0.9em; color: #7c3aed; font-weight: 500;">Claude:</span><br>
+                    <span style="color: #dc2626; font-weight: 600;">Аномалия в декабре:</span> падение выручки на 47% при стабильном среднем чеке.<br><br>
+                    <strong>Причина:</strong> снижение числа клиентов с 41 до 22 (-46%).<br><br>
+                    <strong>Рекомендация:</strong> проверить сезонность и маркетинговые каналы.
+                </div>
+                <div class="claude-panel-input">Задайте вопрос по данным...</div>
+            </div>
+        </div>
+    </div>
+    <ul style="margin-top: 0.5em;">
+        <li style="font-size: 0.72em;">Читает все листы, понимает формулы и связи между ячейками</li>
+        <li style="font-size: 0.72em;">Создаёт сводные таблицы, графики и формулы по запросу</li>
+    </ul>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Claude Chrome Extension -->
+<section class="slide-light">
+    <h2>CLAUDE CHROME</h2>
+    <p style="margin-bottom: 0.4em;">Браузерная автоматизация от Anthropic — Claude управляет браузером</p>
+    <img src="Images/claude-chrome-demo.jpg" style="width: 100%; max-height: 420px; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);">
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Claude Excel + Chrome: бизнес-кейсы -->
+<section class="slide-light">
+    <h2>БИЗНЕС-КЕЙСЫ</h2>
+    <div class="cards-grid cards-grid-2" style="margin-top: 0.8em; gap: 0.8em;">
+        <div class="card card-glass" style="padding: 1.2em; border: 2px solid var(--indigo);">
+            <div class="card-title" style="font-size: 0.9em;">Claude Excel</div>
+            <div class="card-text" style="font-size: 0.75em; margin-top: 0.5em;">
+                Загрузите финансовый отчёт &rarr; Claude анализирует данные, находит тренды, строит прогноз и визуализации
+            </div>
+        </div>
+        <div class="card card-glass" style="padding: 1.2em; border: 2px solid var(--indigo);">
+            <div class="card-title" style="font-size: 0.9em;">Claude Chrome</div>
+            <div class="card-text" style="font-size: 0.75em; margin-top: 0.5em;">
+                Мониторинг конкурентов, автоматический сбор данных с сайтов, заполнение CRM
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Артефакты Claude — Канбан-доска -->
+<section class="slide-light">
+    <h2>АРТЕФАКТЫ CLAUDE</h2>
+    <p style="margin-bottom: 0.3em;">Интерактивные приложения прямо в чате — за секунды</p>
+    <div class="mockup-window">
+        <div class="mockup-titlebar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="title">Артефакт: Канбан-доска проекта</span>
+            <span style="width: 38px;"></span>
+        </div>
+        <div class="mockup-kanban">
+            <div class="kanban-col">
+                <div class="kanban-col-title">To Do</div>
+                <div class="kanban-card blue">
+                    Подготовить КП для Acme Corp
+                    <div><span class="card-tag tag-sales">Продажи</span></div>
+                </div>
+                <div class="kanban-card amber">
+                    Обновить прайс-лист
+                    <div><span class="card-tag tag-ops">Операции</span></div>
+                </div>
+                <div class="kanban-card blue">
+                    Запустить рассылку Q1
+                    <div><span class="card-tag tag-marketing">Маркетинг</span></div>
+                </div>
+            </div>
+            <div class="kanban-col">
+                <div class="kanban-col-title">In Progress</div>
+                <div class="kanban-card green">
+                    Анализ конкурентов
+                    <div><span class="card-tag tag-marketing">Маркетинг</span></div>
+                </div>
+                <div class="kanban-card purple">
+                    Дизайн новой упаковки
+                    <div><span class="card-tag tag-ops">Операции</span></div>
+                </div>
+            </div>
+            <div class="kanban-col">
+                <div class="kanban-col-title">Done</div>
+                <div class="kanban-card green" style="opacity: 0.7;">
+                    SPIN-скрипт продаж
+                    <div><span class="card-tag tag-sales">Продажи</span></div>
+                </div>
+                <div class="kanban-card blue" style="opacity: 0.7;">
+                    SEO-аудит сайта
+                    <div><span class="card-tag tag-marketing">Маркетинг</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p style="margin-top: 0.3em; text-align: center; font-size: 0.7em; color: var(--gray);">
+        Запрос: <span style="color: var(--indigo); font-weight: 500;">"Создай канбан-доску для отдела маркетинга и продаж"</span>
+    </p>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Артефакты — дашборды и приложения -->
+<section class="slide-light">
+    <h2>АРТЕФАКТЫ: ДАШБОРДЫ</h2>
+    <p style="margin-bottom: 0.3em;">Claude создаёт интерактивные визуализации из ваших данных</p>
+    <div class="mockup-window">
+        <div class="mockup-titlebar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="title">Артефакт: Дашборд продаж</span>
+            <span style="width: 38px;"></span>
+        </div>
+        <div class="mockup-dashboard">
+            <div class="dash-metrics">
+                <div class="dash-metric">
+                    <div class="dm-value">$400K</div>
+                    <div class="dm-label">Выручка Q4</div>
+                    <div class="dm-delta">+18% к Q3</div>
+                </div>
+                <div class="dash-metric">
+                    <div class="dm-value">101</div>
+                    <div class="dm-label">Клиентов</div>
+                    <div class="dm-delta">+12 новых</div>
+                </div>
+                <div class="dash-metric">
+                    <div class="dm-value">$3,960</div>
+                    <div class="dm-label">Средний чек</div>
+                    <div class="dm-delta">+5.6%</div>
+                </div>
+            </div>
+            <div style="font-size: 0.5em; color: #64748b; margin-bottom: 0.3em; font-weight: 600;">ВЫРУЧКА ПО МЕСЯЦАМ</div>
+            <div class="dash-chart">
+                <div class="dash-bar">
+                    <div class="bar-fill" style="height: 50px;"></div>
+                    <div class="bar-label">Июл</div>
+                </div>
+                <div class="dash-bar">
+                    <div class="bar-fill" style="height: 58px;"></div>
+                    <div class="bar-label">Авг</div>
+                </div>
+                <div class="dash-bar">
+                    <div class="bar-fill" style="height: 65px;"></div>
+                    <div class="bar-label">Сен</div>
+                </div>
+                <div class="dash-bar">
+                    <div class="bar-fill" style="height: 72px;"></div>
+                    <div class="bar-label">Окт</div>
+                </div>
+                <div class="dash-bar">
+                    <div class="bar-fill" style="height: 85px;"></div>
+                    <div class="bar-label">Ноя</div>
+                </div>
+                <div class="dash-bar">
+                    <div class="bar-fill" style="height: 45px;"></div>
+                    <div class="bar-label">Дек</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p style="margin-top: 0.3em; text-align: center; font-size: 0.75em; color: var(--indigo); font-weight: 600;">
+        500M+ артефактов создано пользователями
+    </p>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- СЕКЦИЯ 02: GEMINI -->
+<!-- ============================================================ -->
+
+<!-- Разделитель секции 02 -->
+<section class="slide-dark section-divider">
+    <div class="section-number">02</div>
+    <h2>GEMINI</h2>
+    <p>Генерация изображений нового поколения</p>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 14: Что такое Gemini image gen -->
+<section class="slide-light">
+    <h2>GEMINI: ГЕНЕРАЦИЯ ИЗОБРАЖЕНИЙ</h2>
+    <p style="margin-bottom: 0.8em;">Замена устаревших инструментов одним решением от Google</p>
+    <div class="comparison-row">
+        <span class="old-tool">Midjourney</span>
+        <span class="comparison-arrow">&rarr;</span>
+        <span class="new-tool">Gemini</span>
+        <span style="font-size: 0.72em; color: var(--gray);">Проще, быстрее, бесплатно</span>
+    </div>
+    <div class="comparison-row">
+        <span class="old-tool">DALL-E</span>
+        <span class="comparison-arrow">&rarr;</span>
+        <span class="new-tool">Gemini</span>
+        <span style="font-size: 0.72em; color: var(--gray);">Лучшее качество и контроль</span>
+    </div>
+    <div class="comparison-row">
+        <span class="old-tool">Stable Diffusion</span>
+        <span class="comparison-arrow">&rarr;</span>
+        <span class="new-tool">Gemini</span>
+        <span style="font-size: 0.72em; color: var(--gray);">Не нужен мощный компьютер</span>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд: Пример: Star Trek стиль -->
+<section class="slide-light">
+    <h2>ПРИМЕР: STAR TREK СТИЛЬ</h2>
+    <div class="two-columns" style="margin-top: 0.6em; align-items: stretch;">
+        <div style="display: flex; flex-direction: column;">
+            <p style="font-size: 0.8em; color: var(--gray); margin-bottom: 0.4em; text-transform: uppercase; letter-spacing: 0.05em;">ПРОМПТ:</p>
+            <div class="terminal-block" style="font-size: 0.55em; flex: 1; display: flex; align-items: center;">
+                Cinematic sci-fi scene, a pristine cardboard packaging box floating majestically on the bridge of the USS Enterprise starship from Star Trek, surrounded by the vastness of deep space visible through panoramic windows, colorful nebulae, Saturn-like ringed planets, distant galaxies and stars in the background, the box is illuminated by dramatic starship lighting, lens flares, highly detailed, photorealistic, 8K, epic composition, volumetric lighting, Star Trek aesthetic
+            </div>
+        </div>
+        <img src="Images/gemini-startrek.png" style="width:100%; height:100%; object-fit:cover; border-radius:14px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд: Пример: стиль Пикассо -->
+<section class="slide-light">
+    <h2>ПРИМЕР: СТИЛЬ ПИКАССО</h2>
+    <div class="two-columns" style="margin-top: 0.6em; align-items: stretch;">
+        <div style="display: flex; flex-direction: column;">
+            <p style="font-size: 0.8em; color: var(--gray); margin-bottom: 0.4em; text-transform: uppercase; letter-spacing: 0.05em;">ПРОМПТ:</p>
+            <div class="terminal-block" style="font-size: 0.55em; flex: 1; display: flex; align-items: center;">
+                Pablo Picasso cubism style painting, an artisan craftsman hand-painting decorative patterns on a cardboard gift box in his cluttered bohemian workshop, fragmented geometric forms, bold angular shapes, multiple perspectives simultaneously, warm earth tones mixed with vibrant blues and terracotta, visible brushstrokes, oil paint texture, artistic tools scattered around, natural light from a window, Mediterranean atmosphere, masterpiece quality, museum artwork
+            </div>
+        </div>
+        <img src="Images/gemini-picasso.png" style="width:100%; height:100%; object-fit:cover; border-radius:14px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 17: Бизнес-кейс Gemini — 3 метрики крупно -->
+<section class="slide-light">
+    <h2>БИЗНЕС-КЕЙС: ВИЗУАЛ БЕЗ ФОТОГРАФА</h2>
+    <p style="margin-bottom: 1.5em;">Каталоги, маркетинг, прототипы — без фотосессий и дизайнеров</p>
+    <div class="cards-grid cards-grid-3" style="margin-top: 1em;">
+        <div class="metric-card">
+            <div class="metric-value">$0</div>
+            <div class="metric-label">Стоимость за изображение</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">30 сек</div>
+            <div class="metric-label">Время генерации</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">&infin;</div>
+            <div class="metric-label">Количество вариантов</div>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- СЕКЦИЯ 03: PERPLEXITY -->
+<!-- ============================================================ -->
+
+<!-- Слайд 23: Разделитель секции 04 -->
+<section class="slide-dark section-divider">
+    <div class="section-number">03</div>
+    <h2>PERPLEXITY</h2>
+    <p>AI-поиск и глубокий анализ</p>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 24: Perplexity: AI-поиск -->
+<section class="slide-light">
+    <h2>PERPLEXITY: AI-ПОИСК</h2>
+    <p style="margin-bottom: 0.6em;">Поиск с источниками вместо бесконечного скроллинга</p>
+    <div class="two-columns">
+        <div class="card" style="background: var(--red-bg); border: 2px solid var(--red); border-radius: 16px;">
+            <div class="card-title" style="color: var(--red); font-size: 0.85em;">Google (старый подход)</div>
+            <ul>
+                <li>10 ссылок — выбирай сам</li>
+                <li>Реклама в первых результатах</li>
+                <li>20-30 минут на исследование</li>
+            </ul>
+        </div>
+        <div class="card" style="background: var(--green-bg); border: 2px solid var(--green); border-radius: 16px;">
+            <div class="card-title" style="color: #059669; font-size: 0.85em;">Perplexity (AI-поиск)</div>
+            <ul>
+                <li>Готовый ответ с источниками</li>
+                <li>Автоматический синтез данных</li>
+                <li>2-3 минуты на исследование</li>
+            </ul>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд: Пример Perplexity — мокап результата -->
+<section class="slide-light">
+    <h2>ПРИМЕР: PERPLEXITY В ДЕЙСТВИИ</h2>
+    <p style="margin-bottom: 0.3em;">Запрос → структурированный ответ с источниками за минуту</p>
+    <div class="mockup-window">
+        <div class="mockup-titlebar" style="background: linear-gradient(180deg, #1a1a2e, #16213e);">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="title" style="color: rgba(255,255,255,0.8);">perplexity.ai</span>
+            <span style="width: 38px;"></span>
+        </div>
+        <div style="background: #fafafa; padding: 0.5em 0.7em;">
+            <!-- Запрос -->
+            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.4em 0.6em; margin-bottom: 0.4em; display: flex; align-items: center; gap: 0.4em;">
+                <span style="font-size: 0.55em; color: var(--indigo); font-weight: 600;">🔍</span>
+                <span style="font-size: 0.55em; color: var(--black); font-weight: 500;">Какой объём рынка упаковки в Центральной Азии в 2025 году?</span>
+            </div>
+            <!-- Источники -->
+            <div style="display: flex; gap: 0.25em; margin-bottom: 0.4em; flex-wrap: wrap;">
+                <span style="font-size: 0.4em; background: #EEF2FF; color: var(--indigo); padding: 0.15em 0.4em; border-radius: 4px; font-weight: 500;">📄 mordorintelligence.com</span>
+                <span style="font-size: 0.4em; background: #EEF2FF; color: var(--indigo); padding: 0.15em 0.4em; border-radius: 4px; font-weight: 500;">📄 statista.com</span>
+                <span style="font-size: 0.4em; background: #EEF2FF; color: var(--indigo); padding: 0.15em 0.4em; border-radius: 4px; font-weight: 500;">📄 grandviewresearch.com</span>
+                <span style="font-size: 0.4em; background: #EEF2FF; color: var(--indigo); padding: 0.15em 0.4em; border-radius: 4px; font-weight: 500;">📄 packagingeurope.com</span>
+            </div>
+            <!-- Ответ -->
+            <div style="font-size: 0.5em; color: #1a1a2e; line-height: 1.4;">
+                <strong>Рынок упаковки в Центральной Азии</strong> оценивается в <strong style="color: var(--indigo);">$2.8 млрд</strong> в 2025 году с прогнозом роста до $4.1 млрд к 2030 году (CAGR 7.9%). <sup style="color: var(--indigo);">[1]</sup><br><br>
+                <strong>Ключевые сегменты:</strong><br>
+                • Гофрокартон — 42% рынка ($1.18 млрд) <sup style="color: var(--indigo);">[2]</sup><br>
+                • Пластиковая упаковка — 28% <sup style="color: var(--indigo);">[1]</sup><br>
+                • Премиальная картонная упаковка — 15%, быстрорастущий сегмент (+12% в год) <sup style="color: var(--indigo);">[3]</sup><br><br>
+                <strong>Драйверы роста:</strong> e-commerce (+35% в год), рост FMCG, экотренды <sup style="color: var(--indigo);">[4]</sup>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд: Use cases — 2 крупных примера -->
+<section class="slide-light">
+    <h2>USE CASES PERPLEXITY</h2>
+    <div class="cards-grid cards-grid-2" style="margin-top: 0.8em;">
+        <div class="card card-accent" style="padding: 1.2em;">
+            <div class="card-title" style="font-size: 0.9em;">Исследование рынка</div>
+            <div class="card-text" style="font-size: 0.75em; margin-top: 0.5em;">
+                "Какой объём рынка упаковки в Центральной Азии?"<br><br>
+                Структурированный отчёт с цифрами и источниками за 2 минуты.
+            </div>
+        </div>
+        <div class="card card-accent" style="padding: 1.2em;">
+            <div class="card-title" style="font-size: 0.9em;">Анализ конкурентов</div>
+            <div class="card-text" style="font-size: 0.75em; margin-top: 0.5em;">
+                "Сравни ценовую политику топ-5 конкурентов в нашей нише"<br><br>
+                Таблица сравнения с актуальными данными и ссылками.
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 26: Экосистема инструментов -->
+<section class="slide-light">
+    <h2>ЭКОСИСТЕМА: PERPLEXITY + CLAUDE</h2>
+    <p style="margin-bottom: 1em;">Два инструмента, которые дополняют друг друга</p>
+    <div class="ecosystem">
+        <div class="eco-box">
+            <div class="eco-name">Perplexity</div>
+            <div class="eco-desc">Поиск и сбор данных<br>с источниками</div>
+        </div>
+        <span class="eco-arrow">&rarr;</span>
+        <div class="eco-box">
+            <div class="eco-name">Claude</div>
+            <div class="eco-desc">Глубокий анализ<br>и генерация решений</div>
+        </div>
+        <span class="eco-arrow">&rarr;</span>
+        <div class="eco-box" style="border-color: var(--green); background: var(--green-bg);">
+            <div class="eco-name" style="color: #059669;">Результат</div>
+            <div class="eco-desc">Обоснованные решения<br>на основе данных</div>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- ПЕРЕХОД К ПРАКТИКЕ -->
+<section class="slide-dark center-content">
+    <h2 style="font-size: 1.5em;">ПРИМЕНЯЕМ НА ПРАКТИКЕ</h2>
+    <p style="font-size: 0.9em; opacity: 0.6; margin-top: 0.5em;">Все инструменты изучены —<br>теперь применим их на реальных данных</p>
+    <div style="margin-top: 1.5em;">
+        <span class="badge" style="background: rgba(255,255,255,0.15); font-size: 0.8em; padding: 0.4em 1.2em;">Формула прибыли + промптинг</span>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- СЕКЦИЯ 04: ФОРМУЛА ПРИБЫЛИ -->
+<!-- ============================================================ -->
+
+<!-- Разделитель секции 04 -->
+<section class="slide-dark section-divider">
+    <div class="section-number">04</div>
+    <h2>ФОРМУЛА ПРИБЫЛИ</h2>
+    <p>Методология Paper Planes &middot; Илья Балахнин</p>
+    <img src="Images/6614b39ce5e1eea15b9d.png.jpg" style="position: absolute; right: 56px; bottom: 48px; height: 180px; opacity: 0.25; border-radius: 8px;">
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 28: Как применить формулу прибыли с ИИ -->
+<section class="slide-light">
+    <h2>ФОРМУЛА ПРИБЫЛИ + ИИ</h2>
+    <p style="margin-bottom: 0.5em; font-size: 0.8em;">Как использовать нейросети для анализа вашего бизнеса</p>
+    <div class="step-diagram">
+        <div class="step-item">
+            <div class="step-num">ШАГ 1</div>
+            <div class="step-text">Берём данные компании<br>(выручка, клиенты, чек)</div>
+        </div>
+        <span class="step-arrow">&rarr;</span>
+        <div class="step-item">
+            <div class="step-num">ШАГ 2</div>
+            <div class="step-text">Скачиваем тетрадь<br>с сайта Балахнина</div>
+        </div>
+        <span class="step-arrow">&rarr;</span>
+        <div class="step-item">
+            <div class="step-num">ШАГ 3</div>
+            <div class="step-text">Загружаем всё<br>в Claude</div>
+        </div>
+        <span class="step-arrow">&rarr;</span>
+        <div class="step-item">
+            <div class="step-num">ШАГ 4</div>
+            <div class="step-text">«Применим формулу<br>прибыли для моей компании»</div>
+        </div>
+    </div>
+    <div class="quote-block" style="font-size: 0.9em; margin-top: 0.8em;">
+        Это про ИСПОЛЬЗОВАНИЕ нейросетей на реальных данных, а не про саму формулу
+    </div>
+    <div class="note-warning" style="margin-top: 0.3em;">Данные изменены в целях коммерческой тайны. Пропорции сохранены.</div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 29: Результат — что выдаст Claude -->
+<section class="slide-light">
+    <h2>РЕЗУЛЬТАТ: ЧТО ВЫДАСТ CLAUDE</h2>
+    <p style="margin-bottom: 0.3em;">Claude анализирует ваши данные и выдаёт</p>
+    <div class="cards-grid cards-grid-3" style="gap: 0.4em;">
+        <div class="card card-glass" style="padding: 0.5em 0.7em;">
+            <div class="card-title" style="font-size: 0.75em;">Декомпозиция выручки</div>
+            <div class="card-text" style="font-size: 0.6em;">Разбивка Revenue: клиенты, LTV, средний чек, частота</div>
+        </div>
+        <div class="card card-glass" style="padding: 0.5em 0.7em;">
+            <div class="card-title" style="font-size: 0.75em;">Слабые места воронки</div>
+            <div class="card-text" style="font-size: 0.6em;">Где теряете клиентов и деньги — этапы и цифры</div>
+        </div>
+        <div class="card card-glass" style="padding: 0.5em 0.7em;">
+            <div class="card-title" style="font-size: 0.75em;">Рекомендации</div>
+            <div class="card-text" style="font-size: 0.6em;">Действия по каждому рычагу роста с приоритетами</div>
+        </div>
+    </div>
+    <div class="formula-container" style="margin-top: 0.4em; margin-bottom: 0.3em;">
+        <div class="formula-block" style="padding: 0.3em 0.8em;">
+            <div class="f-label">Клиенты</div>
+            <div class="f-value">142 &rarr; 625</div>
+        </div>
+        <span class="formula-op">&times;</span>
+        <div class="formula-block" style="padding: 0.3em 0.8em;">
+            <div class="f-label">LTV</div>
+            <div class="f-value">$15,770 &rarr; $27,100</div>
+        </div>
+        <span class="formula-op">=</span>
+        <div class="formula-block result" style="padding: 0.3em 0.8em;">
+            <div class="f-label">Выручка</div>
+            <div class="f-value">$1.72M &rarr; $13M</div>
+        </div>
+    </div>
+    <div class="cards-grid cards-grid-2" style="gap: 0.4em;">
+        <div class="metric-card" style="padding: 0.4em;">
+            <div class="metric-value" style="font-size: 1.1em;">$270K</div>
+            <div class="metric-label">Чистая прибыль Y1</div>
+            <div class="metric-delta">+31% к текущему</div>
+        </div>
+        <div class="metric-card" style="padding: 0.4em;">
+            <div class="metric-value" style="font-size: 1.1em;">$2.9M</div>
+            <div class="metric-label">Чистая прибыль Y3</div>
+            <div class="metric-delta">+974% потенциал</div>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 30: Воронка клиентопотока — только воронка, крупно -->
+<section class="slide-light">
+    <h2>ВОРОНКА КЛИЕНТОПОТОКА</h2>
+    <p style="margin-bottom: 0.6em;">Как формируется клиентская база</p>
+    <div class="funnel-container" style="margin-top: 0.5em;">
+        <div class="funnel-step">
+            <div class="funnel-box light" style="min-width: 140px; padding: 0.4em 0.8em;">ОХВАТЫ</div>
+            <span class="funnel-arrow">&rarr;</span>
+            <div class="funnel-conv">&times;3.3%</div>
+            <span class="funnel-value" style="margin-left: 0.5em;">65K &rarr; 105K</span>
+        </div>
+        <div class="funnel-step" style="padding-left: 2em;">
+            <div class="funnel-box light" style="min-width: 140px; padding: 0.4em 0.8em;">ЛИДЫ</div>
+            <span class="funnel-arrow">&rarr;</span>
+            <div class="funnel-conv">&times;57%</div>
+            <span class="funnel-value" style="margin-left: 0.5em;">2,150</span>
+        </div>
+        <div class="funnel-step" style="padding-left: 4em;">
+            <div class="funnel-box light" style="min-width: 140px; padding: 0.4em 0.8em;">ЦЕЛЕВЫЕ</div>
+            <span class="funnel-arrow">&rarr;</span>
+            <div class="funnel-conv">&times;20% &rarr; 26%</div>
+        </div>
+        <div class="funnel-step" style="padding-left: 6em;">
+            <div class="funnel-box" style="min-width: 140px; padding: 0.4em 0.8em;">КЛИЕНТЫ</div>
+            <span class="funnel-value" style="margin-left: 0.8em; font-size: 0.9em;">142 &rarr; 625</span>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 31: LTV: логистика клиента — упрощён до 2 уровней -->
+<section class="slide-light">
+    <h2>LTV: ЛОГИСТИКА КЛИЕНТА</h2>
+    <p style="margin-bottom: 0.4em;">Сколько приносит 1 клиент за всё время</p>
+
+    <div class="tree-level" style="margin-top: 0.6em;">
+        <div class="tree-node primary" style="padding: 0.7em 1.5em;">
+            <div class="node-label">LTV (выручка с клиента)</div>
+            <div class="node-value" style="font-size: 1em;">$15,770 &rarr; $27,100</div>
+        </div>
+    </div>
+    <div class="tree-line" style="height: 24px;"></div>
+    <div class="tree-level">
+        <div class="tree-node" style="padding: 0.6em 1em;">
+            <div class="node-label">Средний чек (P)</div>
+            <div class="node-value" style="font-size: 0.9em;">$4,550 &rarr; $6,520</div>
+            <div class="node-label" style="color: #1D4ED8;">Upsell +30% &middot; Cross-sell</div>
+        </div>
+        <div class="tree-op">&times;</div>
+        <div class="tree-node" style="padding: 0.6em 1em;">
+            <div class="node-label">Частота заказов (Qs)</div>
+            <div class="node-value" style="font-size: 0.9em;">4.5 &rarr; 5.4</div>
+            <div class="node-label" style="color: #059669;">Абонентская модель</div>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 32: Три рычага роста — крупнее, без warning -->
+<section class="slide-light">
+    <h2>ТРИ РЫЧАГА РОСТА</h2>
+    <p style="margin-bottom: 0.6em;">На что влиять для роста прибыли</p>
+    <div class="cards-grid cards-grid-3">
+        <div class="lever-card blue">
+            <div class="lever-name">РЫЧАГ 1: БАЗА</div>
+            <div class="lever-metric">Охваты + Конверсия</div>
+            <div class="lever-values">
+                <span class="lever-current">142 кл.</span>
+                <span>&rarr;</span>
+                <span class="lever-target">625 кл.</span>
+            </div>
+            <div class="lever-action">ABM, SPIN-скрипты, CRM</div>
+        </div>
+        <div class="lever-card green">
+            <div class="lever-name">РЫЧАГ 2: ЧЕК</div>
+            <div class="lever-metric">Цена &times; Глубина</div>
+            <div class="lever-values">
+                <span class="lever-current">$4,550</span>
+                <span>&rarr;</span>
+                <span class="lever-target">$6,520</span>
+            </div>
+            <div class="lever-action">Upsell, пакетные предложения</div>
+        </div>
+        <div class="lever-card amber">
+            <div class="lever-name">РЫЧАГ 3: ЧАСТОТА</div>
+            <div class="lever-metric">Заказов в год</div>
+            <div class="lever-values">
+                <span class="lever-current">4.5</span>
+                <span>&rarr;</span>
+                <span class="lever-target">5.4</span>
+            </div>
+            <div class="lever-action">Абонентская модель, лояльность</div>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 33: Как ИИ оптимизирует каждый параметр — 4 строки -->
+<section class="slide-light">
+    <h2>КАК ИИ ОПТИМИЗИРУЕТ КАЖДЫЙ ПАРАМЕТР</h2>
+    <p style="margin-bottom: 0.4em;">Маппинг рычагов на AI-инструменты</p>
+    <table class="ai-map">
+        <thead>
+            <tr>
+                <th>Параметр</th>
+                <th>Задача</th>
+                <th>AI-инструмент</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Охваты (65K &rarr; 105K)</td>
+                <td>Контент для SEO и соцсетей</td>
+                <td style="color: var(--indigo); font-weight: 600;">Claude + Gemini</td>
+            </tr>
+            <tr>
+                <td>Конверсия (20% &rarr; 26%)</td>
+                <td>SPIN-продажи, персонализация КП</td>
+                <td style="color: var(--indigo); font-weight: 600;">Claude + Perplexity</td>
+            </tr>
+            <tr>
+                <td>Средний чек ($4,550 &rarr; $6,520)</td>
+                <td>Upsell-стратегии, анализ цен</td>
+                <td style="color: var(--indigo); font-weight: 600;">Claude + Perplexity</td>
+            </tr>
+            <tr>
+                <td>Визуал и контент</td>
+                <td>Маркетинговые материалы, видео</td>
+                <td style="color: var(--indigo); font-weight: 600;">Gemini + Claude Chrome</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ЗАВЕРШЕНИЕ -->
+<!-- ============================================================ -->
+
+<!-- Слайд 37: Прибыль vs Шум -->
+<section class="slide-light">
+    <h2>ПРИБЫЛЬ VS ШУМ</h2>
+    <p style="margin-bottom: 0.4em;">Где ИИ реально помогает, а где пока хайп</p>
+    <div class="two-columns" style="margin-top: 0.4em;">
+        <div class="card" style="background: var(--green-bg); border: 2px solid var(--green); border-radius: 16px; padding: 0.6em 0.8em;">
+            <div class="card-title" style="color: #059669; font-size: 0.8em;">Приносит прибыль</div>
+            <ul>
+                <li style="font-size: 0.72em; padding: 0.15em 0;">Автоматизация рутинных задач</li>
+                <li style="font-size: 0.72em; padding: 0.15em 0;">Генерация контента и визуала</li>
+                <li style="font-size: 0.72em; padding: 0.15em 0;">Анализ данных и отчётов</li>
+                <li style="font-size: 0.72em; padding: 0.15em 0;">Оптимизация воронки продаж</li>
+            </ul>
+        </div>
+        <div class="card" style="background: var(--red-bg); border: 2px solid var(--red); border-radius: 16px; padding: 0.6em 0.8em;">
+            <div class="card-title" style="color: var(--red); font-size: 0.8em;">Пока шум</div>
+            <ul>
+                <li style="font-size: 0.72em; padding: 0.15em 0;">Полная замена сотрудников</li>
+                <li style="font-size: 0.72em; padding: 0.15em 0;">ИИ без человеческого контроля</li>
+                <li style="font-size: 0.72em; padding: 0.15em 0;">Универсальные решения "из коробки"</li>
+                <li style="font-size: 0.72em; padding: 0.15em 0;">ИИ = волшебная кнопка</li>
+            </ul>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 38: Итог: 4 инструмента -->
+<section class="slide-light">
+    <h2>ИТОГ: 5 ИНСТРУМЕНТОВ</h2>
+    <p style="margin-bottom: 0.3em;">Всё, что нужно для старта</p>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5em; margin-top: 0.2em;">
+        <div class="card card-glass" style="text-align: center; border: 2px solid var(--indigo); border-radius: 16px; padding: 0.5em;">
+            <div style="font-size: 1.1em; margin-bottom: 0.1em; font-weight: 700; color: var(--indigo);">C</div>
+            <div class="card-title" style="font-size: 0.75em;">Claude</div>
+            <div class="card-text" style="font-size: 0.6em;">Текст, анализ, артефакты</div>
+        </div>
+        <div class="card card-glass" style="text-align: center; border: 2px solid var(--indigo); border-radius: 16px; padding: 0.5em;">
+            <div style="font-size: 1.1em; margin-bottom: 0.1em; font-weight: 700; color: var(--indigo);">CE</div>
+            <div class="card-title" style="font-size: 0.75em;">Claude Excel</div>
+            <div class="card-text" style="font-size: 0.6em;">Анализ в таблицах</div>
+        </div>
+        <div class="card card-glass" style="text-align: center; border: 2px solid var(--indigo); border-radius: 16px; padding: 0.5em;">
+            <div style="font-size: 1.1em; margin-bottom: 0.1em; font-weight: 700; color: var(--indigo);">CC</div>
+            <div class="card-title" style="font-size: 0.75em;">Claude Chrome</div>
+            <div class="card-text" style="font-size: 0.6em;">Автоматизация</div>
+        </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5em; margin-top: 0.5em;">
+        <div class="card card-glass" style="text-align: center; border: 2px solid var(--indigo); border-radius: 16px; padding: 0.5em;">
+            <div style="font-size: 1.1em; margin-bottom: 0.1em; font-weight: 700; color: var(--indigo);">G</div>
+            <div class="card-title" style="font-size: 0.75em;">Gemini</div>
+            <div class="card-text" style="font-size: 0.6em;">Изображения, визуал</div>
+        </div>
+        <div class="card card-glass" style="text-align: center; border: 2px solid var(--indigo); border-radius: 16px; padding: 0.5em;">
+            <div style="font-size: 1.1em; margin-bottom: 0.1em; font-weight: 700; color: var(--indigo);">P</div>
+            <div class="card-title" style="font-size: 0.75em;">Perplexity</div>
+            <div class="card-text" style="font-size: 0.6em;">AI-поиск, исследования</div>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 39: Что делать дальше -->
+<section class="slide-light">
+    <h2>ЧТО ДЕЛАТЬ ДАЛЬШЕ</h2>
+    <p style="margin-bottom: 0.6em;">3 конкретных шага после тренинга</p>
+    <div class="cards-grid cards-grid-3" style="gap: 0.6em;">
+        <div class="action-card" style="padding: 0.8em;">
+            <div class="action-num" style="font-size: 1.3em;">01</div>
+            <div class="action-title" style="font-size: 0.8em;">Выберите один инструмент</div>
+            <div class="action-desc" style="font-size: 0.65em;">Начните с Claude или Perplexity. Используйте каждый день в течение недели.</div>
+        </div>
+        <div class="action-card" style="padding: 0.8em;">
+            <div class="action-num" style="font-size: 1.3em;">02</div>
+            <div class="action-title" style="font-size: 0.8em;">Найдите свою рутину</div>
+            <div class="action-desc" style="font-size: 0.65em;">Определите 3 задачи, которые делаете каждую неделю. Делегируйте их ИИ.</div>
+        </div>
+        <div class="action-card" style="padding: 0.8em;">
+            <div class="action-num" style="font-size: 1.3em;">03</div>
+            <div class="action-title" style="font-size: 0.8em;">Измерьте результат</div>
+            <div class="action-desc" style="font-size: 0.65em;">Через 2 недели посчитайте: сколько часов сэкономили?</div>
+        </div>
+    </div>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+<!-- Слайд 40: Q&A + контакты -->
+<section class="slide-dark center-content">
+    <h2 style="font-size: 1.8em; margin-bottom: 0.3em;">ВОПРОСЫ?</h2>
+    <p style="font-size: 0.85em; opacity: 0.5; margin-bottom: 1.5em;">Время для Q&A — 40 минут</p>
+    <div style="max-width: 420px; text-align: left;">
+        <div class="contact-item">
+            <div class="contact-icon" style="background: rgba(255,255,255,0.15);">T</div>
+            <span style="color: var(--white);">Telegram: @doniersalahutdinov</span>
+        </div>
+        <div class="contact-item">
+            <div class="contact-icon" style="background: rgba(255,255,255,0.15);">W</div>
+            <span style="color: var(--white);">www.winch.uz</span>
+        </div>
+        <div class="contact-item">
+            <div class="contact-icon" style="background: rgba(255,255,255,0.15);">E</div>
+            <span style="color: var(--white);">info@winch.uz</span>
+        </div>
+    </div>
+    <p style="margin-top: 1.5em; text-align: center;">
+        <span class="highlight" style="font-size: 1.1em; font-weight: 700;">Спасибо за внимание!</span>
+    </p>
+    <div class="slide-footer">
+        <span>ДАНИЯР САЛАХУТДИНОВ | WINCH GROUP</span>
+        <span>29 ЯНВАРЯ 2026</span>
+    </div>
+</section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: 'c/t',
+            progress: true,
+            center: false,
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+
+            keyboard: true,
+            touch: true,
+
+            width: 1280,
+            height: 720,
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 1.5
+        });
+    </script>
+</body>
+</html>
