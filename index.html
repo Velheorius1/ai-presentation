@@ -1094,20 +1094,40 @@
             margin-top: 0.2em;
         }
 
-        /* Увеличить картинки на слайдах */
+        /* Базовое увеличение всех картинок */
         .reveal section img {
-            max-height: 60vh;
-            max-width: 85%;
+            max-height: 55vh !important;
+            max-width: 80% !important;
             object-fit: contain;
         }
 
-        /* Для слайдов с доминирующей картинкой */
-        .reveal section.image-dominant img {
-            max-height: 70vh;
+        /* Для слайдов где картинка должна доминировать (Gemini примеры, Perplexity demo) */
+        .reveal section.image-large img {
+            max-height: 65vh !important;
+            max-width: 90% !important;
         }
-        .reveal section.image-dominant .prompt-text {
-            font-size: 0.7em;
-            opacity: 0.8;
+
+        /* Фото спикера — увеличить */
+        .reveal section.speaker-slide img {
+            width: 350px !important;
+            height: 350px !important;
+            max-height: none !important;
+            max-width: none !important;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 4px solid #dc2626;
+        }
+
+        /* Инфографика внизу слайда "Что может и не может" */
+        .reveal section.capabilities-slide img {
+            max-height: 35vh !important;
+            margin-top: 20px;
+        }
+
+        /* Иконки инструментов внизу слайда "Итог" */
+        .reveal section.tools-summary img {
+            max-height: 15vh !important;
+            width: auto;
         }
     </style>
 </head>
@@ -1176,13 +1196,13 @@
 </section>
 
 <!-- Слайд 3: Спикер -->
-<section class="slide-light">
-    <h2 style="margin-bottom: 0.3em;">СПИКЕР</h2>
-    <div style="display: flex; gap: 2em; align-items: center; margin-top: 0.5em;">
-        <img src="Images/Daniar.jpg" style="width:200px; height:240px; border-radius:14px; object-fit:cover; flex-shrink:0; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
-        <div style="flex: 1;">
-            <h2 style="font-size: 1.1em; margin-bottom: 0.1em;">ДАНИЯР САЛАХУТДИНОВ</h2>
-            <p style="font-size: 0.8em; color: var(--indigo); font-weight: 600; margin-bottom: 0.4em;">Основатель Winch Group | 15 лет в бизнесе</p>
+<section class="slide-light speaker-slide">
+    <h2>СПИКЕР</h2>
+    <div style="display: flex; align-items: center; gap: 60px; justify-content: center; margin-top: 0.5em;">
+        <img src="Images/Daniar.jpg" alt="Данияр Салахутдинов">
+        <div style="text-align: left;">
+            <h3 style="font-size: 1.1em; margin-bottom: 0.1em;">ДАНИЯР САЛАХУТДИНОВ</h3>
+            <p style="color: var(--indigo); font-weight: 600; font-size: 0.85em; margin-bottom: 0.5em;">Основатель Winch Group | 15 лет в бизнесе</p>
             <ul style="margin-top: 0;">
                 <li style="font-size: 0.75em; padding: 0.15em 0;">Winch Group — премиальная полиграфия и упаковка, Ташкент</li>
                 <li style="font-size: 0.75em; padding: 0.15em 0;">14+ лет на рынке, 100+ корпоративных клиентов</li>
@@ -1366,7 +1386,7 @@
 </section>
 
 <!-- Слайд 5: Что может и не может ИИ — по 4 пункта -->
-<section class="slide-light">
+<section class="slide-light capabilities-slide">
     <h2>ЧТО МОЖЕТ И НЕ МОЖЕТ ИИ</h2>
     <div class="two-columns" style="margin-top: 0.6em;">
         <div class="card" style="background: var(--green-bg); border: 2px solid var(--green); border-radius: 16px; padding: 0.6em 0.8em;">
@@ -1987,10 +2007,10 @@
 </section>
 
 <!-- Слайд: Пример: Star Trek стиль -->
-<section class="slide-light image-dominant">
+<section class="slide-light image-large">
     <h2>ПРИМЕР: STAR TREK СТИЛЬ</h2>
     <div class="two-columns" style="margin-top: 0.5em; align-items: center; gap: 1.5em;">
-        <div style="display: flex; flex-direction: column;" class="prompt-text">
+        <div style="display: flex; flex-direction: column;" >
             <p style="font-size: 0.75em; color: var(--gray); margin-bottom: 0.3em; text-transform: uppercase; letter-spacing: 0.05em;">ПРОМПТ:</p>
             <div class="terminal-block" style="font-size: 0.5em; display: flex; align-items: center; padding: 0.8em;">
                 Cinematic sci-fi scene, a pristine cardboard packaging box floating majestically on the bridge of the USS Enterprise starship from Star Trek, surrounded by the vastness of deep space visible through panoramic windows, colorful nebulae, Saturn-like ringed planets, distant galaxies and stars in the background, the box is illuminated by dramatic starship lighting, lens flares, highly detailed, photorealistic, 8K, epic composition, volumetric lighting, Star Trek aesthetic
@@ -2007,10 +2027,10 @@
 </section>
 
 <!-- Слайд: Пример: стиль Пикассо -->
-<section class="slide-light image-dominant">
+<section class="slide-light image-large">
     <h2>ПРИМЕР: СТИЛЬ ПИКАССО</h2>
     <div class="two-columns" style="margin-top: 0.5em; align-items: center; gap: 1.5em;">
-        <div style="display: flex; flex-direction: column;" class="prompt-text">
+        <div style="display: flex; flex-direction: column;" >
             <p style="font-size: 0.75em; color: var(--gray); margin-bottom: 0.3em; text-transform: uppercase; letter-spacing: 0.05em;">ПРОМПТ:</p>
             <div class="terminal-block" style="font-size: 0.5em; display: flex; align-items: center; padding: 0.8em;">
                 Pablo Picasso cubism style painting, an artisan craftsman hand-painting decorative patterns on a cardboard gift box in his cluttered bohemian workshop, fragmented geometric forms, bold angular shapes, multiple perspectives simultaneously, warm earth tones mixed with vibrant blues and terracotta, visible brushstrokes, oil paint texture, artistic tools scattered around, natural light from a window, Mediterranean atmosphere, masterpiece quality, museum artwork
@@ -2094,9 +2114,9 @@
 </section>
 
 <!-- Слайд: Пример Perplexity — скриншот -->
-<section class="slide-light image-dominant">
+<section class="slide-light image-large">
     <h2>ПРИМЕР: PERPLEXITY В ДЕЙСТВИИ</h2>
-    <p style="margin-bottom: 0.5em;" class="prompt-text">Запрос: «Какой объём рынка картонной упаковки в Центральной Азии в 2025 году?»</p>
+    <p style="margin-bottom: 0.5em;" >Запрос: «Какой объём рынка картонной упаковки в Центральной Азии в 2025 году?»</p>
     <div style="display: flex; justify-content: center; align-items: center; flex: 1;">
         <img src="Images/perplexity-demo.jpg" style="max-width: 95%; max-height: 450px; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
     </div>
@@ -2513,8 +2533,8 @@
     </div>
 </section>
 
-<!-- Слайд 38: Итог: 4 инструмента -->
-<section class="slide-light">
+<!-- Слайд 38: Итог: 5 инструментов -->
+<section class="slide-light tools-summary">
     <h2>ИТОГ: 5 ИНСТРУМЕНТОВ</h2>
     <p style="margin-bottom: 0.3em;">Всё, что нужно для старта</p>
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5em; margin-top: 0.2em;">
