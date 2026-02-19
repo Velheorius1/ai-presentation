@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WINCH.UZ — Формула Прибыли 4.0</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            color: #333;
+            line-height: 1.5;
+        }
+        .container { max-width: 1300px; margin: 0 auto; }
+        
+        h1 { text-align: center; color: #1F4E79; font-size: 26px; margin-bottom: 5px; }
+        .subtitle { text-align: center; color: #666; margin-bottom: 25px; font-size: 13px; }
+        
+        /* Главная формула */
+        .main-formula {
+            background: linear-gradient(135deg, #1F4E79, #2F5496);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .main-formula h2 { margin-bottom: 12px; font-size: 18px; }
+        .formula-eq {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .formula-box {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .formula-op { font-size: 20px; }
+        
+        /* Два контура */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        @media (max-width: 900px) { .two-columns { grid-template-columns: 1fr; } }
+        
+        .column {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .column-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1F4E79;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #e74c3c;
+        }
+        
+        /* Воронка */
+        .funnel-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+        .funnel-box {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            padding: 8px 14px;
+            min-width: 110px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .funnel-box.main {
+            background: #1F4E79;
+            color: white;
+            border-color: #1F4E79;
+        }
+        .funnel-box.result {
+            background: #d6eadf;
+            border-color: #28a745;
+        }
+        .funnel-arrow { margin: 0 8px; color: #999; font-size: 12px; }
+        .funnel-conv {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            color: #856404;
+        }
+        .funnel-note {
+            color: #e74c3c;
+            font-size: 11px;
+            font-style: italic;
+            margin-left: 8px;
+        }
+        .funnel-value {
+            background: #e3f2fd;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            color: #1565c0;
+            margin-left: 8px;
+        }
+        
+        .split-row {
+            display: flex;
+            gap: 12px;
+            margin: 12px 0 12px 30px;
+        }
+        .split-box {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            padding: 10px 12px;
+            text-align: center;
+            flex: 1;
+        }
+        .split-box.secondary {
+            background: #eceff1;
+            border-color: #90a4ae;
+        }
+        .split-label { font-size: 11px; color: #666; }
+        .split-value { font-size: 18px; font-weight: 700; color: #2e7d32; }
+        .split-box.secondary .split-value { color: #546e7a; }
+        
+        /* Логистика */
+        .logic-level {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .logic-box {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 10px 15px;
+            text-align: center;
+            min-width: 90px;
+        }
+        .logic-box.main {
+            background: #2e7d32;
+            color: white;
+            border-color: #2e7d32;
+        }
+        .logic-label { font-size: 10px; color: #666; margin-bottom: 3px; }
+        .logic-box.main .logic-label { color: rgba(255,255,255,0.8); }
+        .logic-value { font-weight: 700; font-size: 15px; }
+        .logic-op {
+            width: 26px;
+            height: 26px;
+            background: #e0e0e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .logic-line {
+            width: 2px;
+            height: 15px;
+            background: #ddd;
+            margin: 0 auto;
+        }
+        
+        /* Три рычага */
+        .levers {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .levers-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1F4E79;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .lever-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        @media (max-width: 700px) { .lever-row { grid-template-columns: 1fr; } }
+        .lever-card {
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+        .lever-card.blue { background: #e3f2fd; border: 2px solid #2196f3; }
+        .lever-card.green { background: #e8f5e9; border: 2px solid #4caf50; }
+        .lever-card.orange { background: #fff3e0; border: 2px solid #ff9800; }
+        .lever-name { font-weight: 700; font-size: 13px; margin-bottom: 8px; }
+        .lever-card.blue .lever-name { color: #1565c0; }
+        .lever-card.green .lever-name { color: #2e7d32; }
+        .lever-card.orange .lever-name { color: #e65100; }
+        .lever-metric { font-size: 12px; color: #666; margin-bottom: 5px; }
+        .lever-values {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        .lever-current { color: #666; }
+        .lever-target { font-weight: 700; color: #2e7d32; }
+        .lever-action {
+            margin-top: 10px;
+            font-size: 11px;
+            color: #555;
+            background: rgba(255,255,255,0.7);
+            padding: 5px 8px;
+            border-radius: 4px;
+        }
+        
+        /* Метрики */
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+        @media (max-width: 700px) { .metrics { grid-template-columns: repeat(2, 1fr); } }
+        .metric {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-left: 4px solid #1F4E79;
+        }
+        .metric.green { border-color: #4caf50; }
+        .metric.orange { border-color: #ff9800; }
+        .metric.red { border-color: #f44336; }
+        .metric-value { font-size: 22px; font-weight: 700; color: #1F4E79; }
+        .metric-label { font-size: 12px; color: #666; margin-top: 3px; }
+        .metric-delta {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        .metric-delta.warning { background: #fff3e0; color: #e65100; }
+        
+        /* Предупреждение */
+        .warning-box {
+            background: #fff3e0;
+            border: 2px solid #ff9800;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .warning-icon { font-size: 30px; }
+        .warning-text h3 { color: #e65100; font-size: 14px; margin-bottom: 5px; }
+        .warning-text p { font-size: 12px; color: #666; }
+        
+        /* Источник */
+        .source {
+            background: white;
+            border-radius: 10px;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+        .source a { color: #1F4E79; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 WINCH.UZ — Формула Прибыли 4.0</h1>
+        <p class="subtitle">Методология Paper Planes | Как маркетолог влияет на прибыль</p>
+        
+        <!-- Главная формула -->
+        <div class="main-formula">
+            <h2>Выручка (коммерция)</h2>
+            <div class="formula-eq">
+                <div class="formula-box">Клиенты<br><small>из воронки</small></div>
+                <span class="formula-op">×</span>
+                <div class="formula-box">LTV<br><small>$/клиент</small></div>
+                <span class="formula-op">=</span>
+                <div class="formula-box" style="background: rgba(255,255,255,0.35);">ВЫРУЧКА<br><small>$1.32M → $10M</small></div>
+            </div>
+        </div>
+        
+        <!-- Два контура -->
+        <div class="two-columns">
+            <!-- КЛИЕНТОПОТОК -->
+            <div class="column">
+                <div class="column-title">🔄 Клиентопоток (как формируется база)</div>
+                
+                <div class="funnel-item">
+                    <div class="funnel-box">ОХВАТЫ</div>
+                    <span class="funnel-arrow">→</span>
+                    <div class="funnel-conv">×3.3%</div>
+                    <span class="funnel-value">50K→80K</span>
+                    <span class="funnel-note">SEO, реклама, контент</span>
+                </div>
+                
+                <div class="funnel-item" style="margin-left: 15px;">
+                    <div class="funnel-box result">ЛИДЫ</div>
+                    <span class="funnel-arrow">→</span>
+                    <div class="funnel-conv">×44%</div>
+                    <span class="funnel-value">1,650</span>
+                    <span class="funnel-note">BANT-квалификация</span>
+                </div>
+                
+                <div class="funnel-item" style="margin-left: 30px;">
+                    <div class="funnel-box result">ЦЕЛЕВЫЕ</div>
+                    <span class="funnel-arrow">→</span>
+                    <div class="funnel-conv">×15%→20%</div>
+                    <span class="funnel-value">726</span>
+                    <span class="funnel-note">🎯 SPIN-продажи</span>
+                </div>
+                
+                <div class="funnel-item" style="margin-left: 45px; margin-top: 15px;">
+                    <div class="funnel-box main">КЛИЕНТЫ</div>
+                    <span class="funnel-value" style="font-weight: 700;">109→481</span>
+                </div>
+                
+                <div class="split-row">
+                    <div class="split-box">
+                        <div class="split-label">первичные (новые)</div>
+                        <div class="split-value">109→224</div>
+                        <div class="split-label">ABM + партнёры</div>
+                    </div>
+                    <div class="split-box secondary">
+                        <div class="split-label">вторичные (retention)</div>
+                        <div class="split-value">0→257</div>
+                        <div class="split-label">🎯 CRM-автоматизация</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ЛОГИСТИКА КЛИЕНТА -->
+            <div class="column">
+                <div class="column-title">💰 Логистика клиента (сколько приносит 1 клиент)</div>
+                
+                <div class="logic-level">
+                    <div class="logic-box main">
+                        <div class="logic-label">LTV (выручка с клиента)</div>
+                        <div class="logic-value">$12,128 → $20,859</div>
+                    </div>
+                </div>
+                
+                <div class="logic-line"></div>
+                
+                <div class="logic-level">
+                    <div class="logic-box">
+                        <div class="logic-label">Средний чек (P)</div>
+                        <div class="logic-value">$3,500→$5,017</div>
+                    </div>
+                    <div class="logic-op">×</div>
+                    <div class="logic-box">
+                        <div class="logic-label">Заказов (Qs)</div>
+                        <div class="logic-value">3.47→4.16</div>
+                    </div>
+                </div>
+                
+                <div class="logic-line"></div>
+                
+                <div class="logic-level">
+                    <div class="logic-box" style="background: #e3f2fd; border-color: #2196f3;">
+                        <div class="logic-label">Цена (Pu)</div>
+                        <div class="logic-value">$3,500</div>
+                        <div class="logic-label" style="color: #1565c0;">🎯 Upsell +30%</div>
+                    </div>
+                    <div class="logic-op">×</div>
+                    <div class="logic-box" style="background: #e3f2fd; border-color: #2196f3;">
+                        <div class="logic-label">Глубина (D)</div>
+                        <div class="logic-value">1.0→1.3</div>
+                        <div class="logic-label" style="color: #1565c0;">🎯 Crossell</div>
+                    </div>
+                </div>
+                
+                <div class="logic-line"></div>
+                
+                <div class="logic-level">
+                    <div class="logic-box" style="background: #e8f5e9; border-color: #4caf50;">
+                        <div class="logic-label">Частота (Q)</div>
+                        <div class="logic-value">3.5→4.2</div>
+                        <div class="logic-label" style="color: #2e7d32;">🎯 Абонентская</div>
+                    </div>
+                    <div class="logic-op">−</div>
+                    <div class="logic-box" style="background: #ffebee; border-color: #f44336;">
+                        <div class="logic-label">Рекламации</div>
+                        <div class="logic-value">1%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Три рычага -->
+        <div class="levers">
+            <div class="levers-title">🚀 Три рычага роста (методология Paper Planes: +221% в кейсе)</div>
+            <div class="lever-row">
+                <div class="lever-card blue">
+                    <div class="lever-name">🔵 РЫЧАГ 1: Клиентская база</div>
+                    <div class="lever-metric">Охваты + Конверсия + Retention</div>
+                    <div class="lever-values">
+                        <span class="lever-current">109 кл.</span>
+                        <span>→</span>
+                        <span class="lever-target">481 кл. (+341%)</span>
+                    </div>
+                    <div class="lever-action">ABM, SPIN-скрипты, CRM-автоматизация</div>
+                </div>
+                <div class="lever-card green">
+                    <div class="lever-name">🟢 РЫЧАГ 2: Средний чек</div>
+                    <div class="lever-metric">Цена × Глубина (crossell)</div>
+                    <div class="lever-values">
+                        <span class="lever-current">$3,500</span>
+                        <span>→</span>
+                        <span class="lever-target">$5,017 (+43%)</span>
+                    </div>
+                    <div class="lever-action">Upsell срочности, пакетные предложения</div>
+                </div>
+                <div class="lever-card orange">
+                    <div class="lever-name">🟡 РЫЧАГ 3: Частота</div>
+                    <div class="lever-metric">Заказов на клиента в год</div>
+                    <div class="lever-values">
+                        <span class="lever-current">3.5</span>
+                        <span>→</span>
+                        <span class="lever-target">4.2 (+20%)</span>
+                    </div>
+                    <div class="lever-action">Абонентская модель, программа лояльности</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Предупреждение -->
+        <div class="warning-box">
+            <div class="warning-icon">⚠️</div>
+            <div class="warning-text">
+                <h3>ВАЖНО: Производственное ограничение</h3>
+                <p>Макс. мощность: 600 заказов/год (50×12). Воронка Год 2 генерирует 889 заказов (148% загрузки), Год 3 — 2,021 заказов (337%). 
+                <strong>Решение:</strong> либо инвестировать в мощности, либо фильтровать только ★★★ клиентов.</p>
+            </div>
+        </div>
+        
+        <!-- Метрики -->
+        <div class="metrics">
+            <div class="metric">
+                <div class="metric-value">109→481</div>
+                <div class="metric-label">Клиентов</div>
+                <div class="metric-delta">+341% Y1→Y3</div>
+            </div>
+            <div class="metric green">
+                <div class="metric-value">$12K→$21K</div>
+                <div class="metric-label">LTV ($/клиент)</div>
+                <div class="metric-delta">+72% Y1→Y3</div>
+            </div>
+            <div class="metric orange">
+                <div class="metric-value">$1.32M→$10M</div>
+                <div class="metric-label">Выручка</div>
+                <div class="metric-delta">+660% потенциал</div>
+            </div>
+            <div class="metric red">
+                <div class="metric-value">$209K→$2.2M</div>
+                <div class="metric-label">Чистая прибыль</div>
+                <div class="metric-delta warning">⚠️ при расширении</div>
+            </div>
+        </div>
+        
+        <!-- Источник -->
+        <div class="source">
+            <p><strong>Методология:</strong> Paper Planes — Формула Прибыли 4.0</p>
+            <p style="margin-top: 5px;">
+                <a href="https://media.paper-planes.ru/post/keys-o-keysah-rost-b2b-proizvodstva-na-221-kak-my-postroili-sistemu-masshtabirovaniya-s-nulya" target="_blank">
+                    📖 Кейс: Рост B2B-производства на 221%
+                </a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
